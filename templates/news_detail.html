@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ article['title'] }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="content-wrapper article-detail-page">
+        
+        <div class="back-to-list-link">
+             <a href="{{ url_for('news_list', category=category) }}" class="back-link">
+                 ← Back to {{ category | capitalize }} news
+             </a>
+        </div>
+
+        <article class="reader-container">
+            <header class="article-header">
+                <h1 class="article-main-title">{{ article['title'] }}</h1>
+                <div class="article-metadata">
+                     <span class="category-tag">{{ category | capitalize }}</span>
+                     <a href="{{ article.link }}" target="_blank" class="source-link">
+                         Read Original Article
+                     </a>
+                </div>
+            </header>
+
+            <section class="article-content">
+                <p>{{ article['content'] | replace('\n\n', '</p><p>') | safe }}</p> 
+                </section>
+        </article>
+
+        <hr class="separator">
+
+        <div class="action-bar">
+            <form action="{{ url_for('learn') }}" method="get" class="inline-form">
+                <button type="submit" class="primary-action-btn large-btn">
+                    👨‍🏫 Start Vocabulary Learning
+                </button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>

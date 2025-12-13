@@ -12,32 +12,60 @@ app.secret_key = "hangman-secret-key"
 def index():
     return render_template('index.html')
     
+#--------------------------------------------------------------#
+#--------------------------------------------------------------#
+
 # watch news
 @app.route('/news', methods=['POST'])
 def news():
-    level = request.form.get('cefr')
-    count = int(request.form.get('count'))
-    news_type = request.form.get('news_type')
+    session['cefr'] = request.form.get('cefr')
+    session['count'] = int(request.form.get('count'))
+    category = request.form.get('news_type')
+    return redirect(url_for('news_list', category=category))
 
-    # suppose is txt file
-    news_path = f"data/news/{news_type}.txt"
+@app.route('/news/<category>')
+def news_list(category):
+    news_path = f"data/news/{category}.json"
 
     with open(news_path, 'r', encoding='utf-8') as f:
-        news_content = f.read()
+        news_data = json.load(f)
 
     return render_template(
-        'news.html',
-        news=news_content,
-        level=level,
-        count=count,
-        news_type=news_type
+        'news_list.html',
+        category=category,
+        articles=news_data["articles"]
     )
 
 
-@app.route('/learn', methods=['POST'])
+@app.route('/news/<category>/<int:article_id>')
+def news_detail(category, article_id):
+    news_path = f"data/news/{category}.json"
+
+    with open(news_path, 'r', encoding='utf-8') as f:
+        news_data = json.load(f)
+
+    # find coresponding id article
+    article = next(
+        (a for a in news_data["articles"] if a["id"] == article_id),
+        None
+    )
+
+    if article is None:
+        return "Article not found", 404
+
+    return render_template(
+        'news_detail.html',
+        category=category,
+        article=article
+    )
+
+#--------------------------------------------------------------#
+#--------------------------------------------------------------#
+
+@app.route('/learn', methods=['GET'])
 def learn():
-    level = request.form.get('cefr')
-    count = int(request.form.get('count'))
+    level = session.get('cefr')
+    count = session.get('count')
 
     # the file received
     json_path = os.path.join('data/vocabulary', 'words.json')
@@ -56,7 +84,8 @@ def learn():
     )
 
 
-
+#--------------------------------------------------------------#
+#--------------------------------------------------------------#
 
 # use vocabulary make sentence
 @app.route('/check_sentence', methods=['POST'])
@@ -90,6 +119,8 @@ def check_sentence():
         anchor=word   # use for scroll 
     )
 
+#--------------------------------------------------------------#
+#--------------------------------------------------------------#
 
 ''' Cloze '''
 @app.route('/cloze', methods=['GET'])
@@ -154,7 +185,8 @@ def cloze_play():
     )
 
 
-
+#--------------------------------------------------------------#
+#--------------------------------------------------------------#
 
 @app.route('/submit_cloze', methods=['POST'])
 def submit_cloze():
@@ -225,11 +257,12 @@ def submit_cloze():
         result=result
     )
 
-
+#--------------------------------------------------------------#
+#--------------------------------------------------------------#
 ## Hangman Game ###
 @app.route('/hangman', methods=['GET'])
 def hangman():
-    # 讀 vocabulary
+    # read vocabulary
     with open('data/vocabulary/words.json', 'r', encoding='utf-8') as f:
         words = json.load(f)
 
@@ -238,6 +271,8 @@ def hangman():
     session["hangman_answer"] = answer
     session["hangman_guessed"] = []
     session["hangman_wrong"] = 0
+    session["hangman_hint_used"] = False
+
 
     masked = " ".join("_" for _ in answer)
 
@@ -270,6 +305,7 @@ def hangman_guess_ajax():
 
     session["hangman_guessed"] = guessed
     session["hangman_wrong"] = wrong
+    
 
     masked = " ".join(c if c in guessed else "_" for c in answer)
 
@@ -288,10 +324,18 @@ def hangman_guess_ajax():
 
 @app.route('/hangman_hint', methods=['POST'])
 def hangman_hint():
-    wrong = session.get("hangman_wrong", 0)
+    # The user had used the hint
+    if session.get("hangman_hint_used"):
+        return jsonify({
+            "error": "hint_used",
+            "wrong": session.get("hangman_wrong", 0)
+        })
 
-    # 扣一條命
-    wrong += 1
+    # noted as used
+    session["hangman_hint_used"] = True
+
+    # minus one life
+    wrong = session.get("hangman_wrong", 0) + 1
     session["hangman_wrong"] = wrong
 
     with open('data/hangman/describe.txt', 'r', encoding='utf-8') as f:

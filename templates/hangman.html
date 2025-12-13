@@ -3,6 +3,29 @@
 <head>
     <title>Hangman</title>
 
+    <style>
+        #hangman-container {
+            width: 250px;
+            height: 250px;
+            border: 2px solid #aaa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            background-color: #fafafa;
+        }
+
+        #hangman-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+    </style>
+
+
+
+
     <script>
     let gameLocked = false;
 
@@ -30,6 +53,10 @@
         document.getElementById("wrong").innerText = data.wrong;
         document.getElementById("guessed").innerText = data.guessed.join(", ");
 
+        document.getElementById("hangman-img").src =
+        "/static/hangman/H" + data.wrong + ".png";
+
+
         if (data.win) {
             gameLocked = true;
             setTimeout(() => {
@@ -52,16 +79,25 @@
     function useHint() {
         if (gameLocked) return;
 
-        if (!confirm("Using a hint will cost 1 life. Are you sure ?")) return;
-
-        fetch("/hangman_hint", {
-            method: "POST"
-        })
+        
+        fetch("/hangman_hint", {method: "POST"})
         .then(res => res.json())
         .then(data => {
+            if (data.error === "hint_used") {
+                alert("⚠️ Hint can only be used once!");
+                return;
+            }
+
+            if (!confirm("Using a hint will cost 1 life. Are you sure ?")) return;
+
             document.getElementById("hint-box").innerText = data.hint;
             document.getElementById("hint-box").style.display = "block";
             document.getElementById("wrong").innerText = data.wrong;
+            document.getElementById("hint-btn").disabled = true;
+
+            document.getElementById("hangman-img").src =
+            "/static/hangman/H" + data.wrong + ".png";
+            
 
             if (data.lose) {
                 alert("💀 You Lose!");
@@ -74,9 +110,14 @@
 <body>
 
 <h1>Hangman Game</h1>
+<div id="hangman-container">
+    <img id="hangman-img"
+         src="{{ url_for('static', filename='hangman/H' ~ wrong ~ '.png') }}">
+</div>
+
 
 <!-- ===== Hint ===== -->
-<button onclick="useHint()">💡 Hint (cost 1 life)</button>
+<button id="hint-btn" onclick="useHint()">💡 Hint (cost 1 life)</button>
 
 <div id="hint-box"
      style="display:none; border:1px solid #aaa; padding:10px; margin:10px 0;">

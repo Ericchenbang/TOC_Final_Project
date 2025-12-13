@@ -1,0 +1,416 @@
+/* Fundamental setting and font*/
+:root {
+    --primary-color: #4A90E2; 
+    --secondary-color: #6DC2A6;
+    --background-light: #F4F7F9;
+    --text-dark: #333333;
+    --text-light: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --border-color: #E0E0E0;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.main-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    color: #666;
+    font-weight: 400;
+}
+
+.form-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-top: 5px solid var(--primary-color);
+}
+
+.form-title {
+    font-size: 1.5em;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+.learning-form select,
+.learning-form input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: #F9F9F9;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    -webkit-appearance: none; /* remove default from browser */
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.learning-form select:focus,
+.learning-form input[type="number"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+    outline: none;
+    background-color: var(--card-bg);
+}
+
+/* submit button */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition), transform 0.1s ease;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #3C7DCF; 
+}
+
+.submit-btn:active {
+    transform: translateY(1px);
+}
+
+.submit-btn .emoji {
+    margin-left: 5px;
+}
+
+.primary-action-btn {
+    padding: 15px 30px;
+    background-color: var(--secondary-color); 
+    color: var(--text-light);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition), transform 0.1s ease;
+}
+
+.primary-action-btn:hover {
+    background-color: #55A88E; 
+}
+
+.navigation-footer {
+    padding: 15px 0;
+}
+
+.navigation-footer p {
+    color: #666;
+    margin-bottom: 15px;
+    font-size: 0.95em;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: var(--text-dark);
+    background-color: var(--border-color);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: background-color var(--transition), color var(--transition);
+}
+
+.nav-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2em;
+    }
+    
+    .form-card {
+        padding: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+    }
+    
+    .nav-btn {
+        width: 100%;
+    }
+}
+/* ----------------------*/
+/* --- For news page --- */
+/* ----------------------*/
+
+.page-header {
+    padding-bottom: 10px;
+    margin-bottom: 5px; 
+}
+
+.news-list-container {
+    display: grid;
+    gap: 30px; /* interval between cards */
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+/* single news card */
+.news-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    border-left: 5px solid var(--secondary-color); 
+    transition: transform 0.2s ease-in-out;
+}
+
+.news-card:hover {
+    transform: translateY(-3px); /* slight fly up */
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.article-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.category-tag {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 0.85em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.source-link {
+    color: #999;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.2s;
+}
+
+.source-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.article-body {
+    font-family: 'Lora', Georgia, serif; 
+    font-size: 1.1em; 
+    line-height: 1.7; 
+    color: #444;
+}
+
+.article-body p {
+    margin-bottom: 1.5em; 
+}
+
+/* --- NEWS LIST STYLES (for news_list.html) --- */
+
+.news-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+}
+
+.news-card:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.card-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    display: block;
+}
+
+.news-card .article-title {
+    font-size: 1.4em; 
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.article-preview {
+    font-size: 0.95em;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--secondary-color);
+    display: block;
+    margin-top: 10px;
+}
+
+/* --- NEWS DETAIL STYLES (for news_detail.html) --- */
+
+
+.article-detail-page {
+    max-width: 900px; /* read mode can be wider */
+    margin: 40px auto;
+    padding: 40px;
+}
+
+.back-to-list-link {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.reader-container {
+    background: var(--card-bg);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.article-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.article-main-title {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.article-metadata {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95em;
+}
+
+.article-content {
+    font-family: 'Lora', Georgia, serif; 
+    font-size: 1.15em; 
+    line-height: 1.8; 
+    color: #333;
+}
+
+.article-content p {
+    margin-bottom: 1.8em; /* interval between paragraph */
+    text-align: justify; 
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 30px 0;
+}
+
+.action-bar {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.large-btn {
+    padding: 18px 40px; 
+    font-size: 1.2em;
+}
+
+/* RWD modification */
+@media (max-width: 600px) {
+    .reader-container {
+        padding: 20px 15px;
+    }
+
+    .article-main-title {
+        font-size: 1.8em;
+    }
+    
+    .article-content {
+        font-size: 1em;
+    }
+    
+    .large-btn {
+        padding: 15px 30px;
+        font-size: 1.1em;
+    }
+}

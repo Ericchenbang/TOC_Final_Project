@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ category | capitalize }} News</title> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="content-wrapper">
+        <header class="page-header">
+            <h1 class="page-title">{{ category | capitalize }} News</h1>
+            <p class="subtitle">Select an article to start reading and learning.</p>
+        </header>
+
+        <div class="news-list-container">
+            {% for a in articles %}
+            <article class="news-card">
+                <a href="{{ url_for('news_detail',
+                                    category=category,
+                                    article_id=a['id']) }}" class="card-link">
+                    <h2 class="article-title">{{ a['title'] }}</h2>
+                    <p class="article-preview">{{ a['content'][:120] }}...</p>
+                    <span class="read-more">Read Full Article →</span>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+        <div class="action-footer">
+            <a href="/" class="back-link">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

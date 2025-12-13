@@ -1,44 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Let's learn English!!!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Learn English!!!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Vocabulary Learner</h1>
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title">🌍 Vocabulary Explorer</h1>
+            <p class="subtitle">Personalized English learning through news and games.</p>
+        </header>
 
-    <form action="/news" method="POST">
-        <label>Choose the type of news：</label>
-        <select name="news_type" required>
-            <option value="sport">Sport</option>
-            <option value="business">Business</option>
-            <option value="innovation">Innovation</option>
-            <option value="culture">Culture</option>
-            <option value="arts">Arts</option>
-            <option value="travel">Travel</option>
-            <option value="earth">Earth</option>
-            <option value="news">News</option>
-        </select>
+        <div class="form-card">
+            <h2 class="form-title">Start Your Learning Journey</h2>
+            
+            <form action="/news" method="POST" class="learning-form">
+                
+                <div class="form-group">
+                    <label for="news_type">Choose the type of news:</label>
+                    <select id="news_type" name="news_type" required>
+                        <option value="sport">Sport 🏆</option>
+                        <option value="business">Business 💰</option>
+                        <option value="innovation">Innovation 💡</option>
+                        <option value="culture">Culture 🎭</option>
+                        <option value="arts">Arts 🎨</option>
+                        <option value="travel">Travel ✈️</option>
+                        <option value="earth">Earth 🌎</option>
+                        <option value="news">General News 📰</option>
+                    </select>
+                </div>
 
-        <br><br>
+                <div class="form-group">
+                    <label for="cefr">CEFR level:</label>
+                    <select id="cefr" name="cefr" required>
+                        <option value="A1">A1 (Beginner)</option>
+                        <option value="A2">A2 (Elementary)</option>
+                        <option value="B1">B1 (Intermediate)</option>
+                        <option value="B2">B2 (Upper Intermediate)</option>
+                        <option value="C1">C1 (Advanced)</option>
+                        <option value="C2">C2 (Proficiency)</option>
+                    </select>
+                </div>
 
-        <label>CEFR level：</label>
-        <select name="cefr" required>
-            <option value="A1">A1</option>
-            <option value="A2">A2</option>
-            <option value="B1">B1</option>
-            <option value="B2">B2</option>
-            <option value="C1">C1</option>
-            <option value="C2">C2</option>
-        </select>
+                <div class="form-group">
+                    <label for="count">How many vocabulary do you want to learn?</label>
+                    <input type="number" id="count" name="count" min="1" max="50" required placeholder="e.g. 10">
+                </div>
 
-        <br><br>
+                <button type="submit" class="submit-btn">Let's Watch News <span class="emoji">🚀</span></button>
+            </form>
+        </div>
 
-        <label>How many vocabulary do you want to learn？</label>
-        <input type="number" name="count" min="1" max="50" required>
-
-        <br><br>
-
-        <button type="submit">Let's watch news \owo/</button>
-    </form>
+        
+        <!-- 
+        <div class="navigation-footer">
+            <p>Or jump directly to our activities:</p>
+            <div class="nav-links">
+                <a href="/learn" class="nav-btn">Study Vocabulary 📘</a>
+                <a href="/cloze" class="nav-btn">Cloze Test 📝</a>
+                <a href="/hangman" class="nav-btn">Play Hangman 🕹️</a>
+            </div>
+        </div> 
+        -->
+    </div>
 </body>
 </html>
