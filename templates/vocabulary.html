@@ -61,7 +61,7 @@
             <button type="submit">Submit your sentence</button>
         </form>
 
-        <!-- 如果某單字有回饋，就顯示在此 -->
+        <!-- if any word is responed, show here -->
         {% if w.word in feedback %}
             <h4>Result：</h4>
             <p><b>Your sentence：</b> {{ feedback[w.word].user_sentence }}</p>
@@ -79,6 +79,11 @@
     <hr>
 </div>
 {% endfor %}
+
+<form action="/cloze" method="GET">
+    <button type="submit">開始克漏字遊戲</button>
+</form>
+
 
 <a href="/">Back to home</a>
 

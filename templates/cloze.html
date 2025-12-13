@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cloze Test</title>
+
+    <style>
+        .word {
+            display: inline-block;
+            margin: 5px 10px;
+            padding: 5px 8px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #word-bank {
+            display: flex;
+            flex-wrap: wrap;      /* auto \n */
+            gap: 10px;
+        }
+
+        .word-container {
+            display: inline-block;
+        }
+
+        .used {
+            text-decoration: line-through;
+            color: #aaa;
+            background-color: #f0f0f0;
+        }
+        .locked {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+    </style>
+
+    <script>
+        function toggleUsed(span) {
+        if (span.classList.contains("locked")) {
+            return;
+        }
+
+        span.classList.toggle("used");
+
+        const hiddenInput = span.nextElementSibling;
+
+        if (span.classList.contains("used")) {
+            hiddenInput.disabled = false;
+        } else {
+            hiddenInput.disabled = true;
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<h1>Let's practice cloze</h1>
+
+<!-- ================== choose voc stage ================== -->
+{% if stage == "select" %}
+<h2>Choose the vocabulary you want to pratice</h2>
+
+<form action="/cloze_select" method="POST">
+    {% for w in words %}
+        <label>
+            <input type="checkbox" name="words" value="{{ w.word }}">
+            {{ w.word }}
+        </label><br>
+    {% endfor %}
+
+    <br>
+    <button type="submit">Start Cloze ! </button>
+</form>
+
+{% endif %}
+
+<!-- ================== answer stage ================== -->
+{% if stage == "play" %}
+<h1>Cloze Test </h1>
+
+<form action="/submit_cloze" method="POST">
+
+    <p>{{ cloze_text | safe }}</p>
+
+    <hr>
+
+    <h3>Vocabulary</h3>
+
+    <div id="word-bank">
+        {% for w in selected_words %}
+        <div class="word-container">
+            <span class="word
+                  {% if used_words and w.word in used_words %}used{% endif %}
+                  {% if locked_words and w.word in locked_words %}locked used{% endif %}"
+                  onclick="toggleUsed(this)">
+                {{ w.word }}
+            </span>
+
+            <input type="hidden"
+                   name="used_word"
+                   value="{{ w.word }}"
+                   {% if not (used_words and w.word in used_words) %}disabled{% endif %}>
+        </div>
+        {% endfor %}
+    </div>
+
+    <br>
+    <button type="submit">Submit Answer</button>
+</form>
+
+<hr>
+{% endif %}
+
+<br>
+<a href="/">Back to home</a>
+
+</body>
+</html>
