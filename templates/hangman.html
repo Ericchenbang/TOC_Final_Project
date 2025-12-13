@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hangman</title>
+
+    <script>
+    let gameLocked = false;
+
+    /* ===== Keyboard input ===== */
+    document.addEventListener("keydown", function (e) {
+        if (gameLocked) return;
+
+        if (!/^[a-zA-Z]$/.test(e.key)) return;
+
+        fetch("/hangman_guess_ajax", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ letter: e.key })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.error) return;
+
+            updateGame(data);
+        });
+    });
+
+    function updateGame(data) {
+        document.getElementById("masked").innerText = data.masked;
+        document.getElementById("wrong").innerText = data.wrong;
+        document.getElementById("guessed").innerText = data.guessed.join(", ");
+
+        if (data.win) {
+            gameLocked = true;
+            setTimeout(() => {
+                alert("🎉 You Win! Next word!");
+                location.reload();
+            }, 700);
+        }
+
+        if (data.lose) {
+            gameLocked = true;
+
+            setTimeout(() => {
+                alert("💀 You Lose!\nAnswer: " + data.answer);
+                location.reload();
+            }, 700);
+        }
+    }
+
+    /* ===== Hint ===== */
+    function useHint() {
+        if (gameLocked) return;
+
+        if (!confirm("Using a hint will cost 1 life. Are you sure ?")) return;
+
+        fetch("/hangman_hint", {
+            method: "POST"
+        })
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("hint-box").innerText = data.hint;
+            document.getElementById("hint-box").style.display = "block";
+            document.getElementById("wrong").innerText = data.wrong;
+
+            if (data.lose) {
+                alert("💀 You Lose!");
+                gameLocked = true;
+            }
+        });
+    }
+    </script>
+</head>
+<body>
+
+<h1>Hangman Game</h1>
+
+<!-- ===== Hint ===== -->
+<button onclick="useHint()">💡 Hint (cost 1 life)</button>
+
+<div id="hint-box"
+     style="display:none; border:1px solid #aaa; padding:10px; margin:10px 0;">
+</div>
+
+<hr>
+
+<!-- ===== Game Display ===== -->
+<p><b>Word:</b></p>
+<h2 id="masked" style="letter-spacing:8px;">{{ masked }}</h2>
+
+<p>Wrong guesses: <span id="wrong">{{ wrong }}</span> / 6</p>
+
+<p>Guessed letters: <span id="guessed">{{ guessed | join(", ") }}</span></p>
+
+<hr>
+
+<p><i>Type a letter on your keyboard</i></p>
+
+<a href="/hangman">🔁 Restart</a> |
+<a href="/cloze">📝 Go to Cloze</a> |
+<a href="/">🏠 Home</a>
+
+
+
+</body>
+</html>

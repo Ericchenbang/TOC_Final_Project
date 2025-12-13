@@ -35,6 +35,13 @@
     </style>
 
     <script>
+        function selectAll(source) {
+            const checkboxes = document.querySelectorAll('input[name="words"]');
+            for (const cb of checkboxes) {
+                cb.checked = source.checked;
+            }
+        }
+
         function toggleUsed(span) {
         if (span.classList.contains("locked")) {
             return;
@@ -59,9 +66,18 @@
 
 <!-- ================== choose voc stage ================== -->
 {% if stage == "select" %}
+{% if error %}
+    <p style="color:red;"><b>{{ error }}</b></p>
+{% endif %}
 <h2>Choose the vocabulary you want to pratice</h2>
 
 <form action="/cloze_select" method="POST">
+    <label>
+        <input type="checkbox" onclick="selectAll(this)">
+        <b>Select All</b>
+    </label>
+    <hr>
+
     {% for w in words %}
         <label>
             <input type="checkbox" name="words" value="{{ w.word }}">
@@ -107,13 +123,17 @@
 
     <br>
     <button type="submit">Submit Answer</button>
+    
+</form>
 </form>
 
 <hr>
 {% endif %}
 
-<br>
-<a href="/">Back to home</a>
+
+<a href="/cloze">🔁 Restart Cloze</a> |
+<a href="/hangman">🎯 Go to Hangman</a> |
+<a href="/">🏠 Home</a>
 
 </body>
 </html>

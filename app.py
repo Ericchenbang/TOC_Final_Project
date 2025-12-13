@@ -1,9 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 import json
 import os
 import re
+import random
 
 app = Flask(__name__)
+app.secret_key = "hangman-secret-key"
 
 # root directory
 @app.route('/')
@@ -105,6 +107,18 @@ def cloze():
 @app.route('/cloze_select', methods=['POST'])
 def cloze_select():
     selected_words = request.form.getlist('words')
+
+    # if user choose less than 2
+    if len(selected_words) < 2:
+        with open('data/vocabulary/words.json', 'r', encoding='utf-8') as f:
+            words = json.load(f)
+
+        return render_template(
+            'cloze.html',
+            stage="select",
+            words=words,
+            error="Please select at least TWO words to start the cloze test."
+        )
 
     data = [{"word": w} for w in selected_words]
 
@@ -212,9 +226,84 @@ def submit_cloze():
     )
 
 
+## Hangman Game ###
+@app.route('/hangman', methods=['GET'])
+def hangman():
+    # 讀 vocabulary
+    with open('data/vocabulary/words.json', 'r', encoding='utf-8') as f:
+        words = json.load(f)
+
+    answer = random.choice(words)["word"].lower()
+
+    session["hangman_answer"] = answer
+    session["hangman_guessed"] = []
+    session["hangman_wrong"] = 0
+
+    masked = " ".join("_" for _ in answer)
+
+    return render_template(
+        'hangman.html',
+        masked=masked,
+        guessed=[],
+        wrong=0,
+        win=False,
+        lose=False
+    )
 
 
+@app.route('/hangman_guess_ajax', methods=['POST'])
+def hangman_guess_ajax():
+    data = request.json
+    letter = data.get("letter", "").lower()
 
+    answer = session.get("hangman_answer")
+    guessed = session.get("hangman_guessed", [])
+    wrong = session.get("hangman_wrong", 0)
+
+    if not letter or len(letter) != 1 or not letter.isalpha():
+        return jsonify({"error": "invalid input"})
+
+    if letter not in guessed:
+        guessed.append(letter)
+        if letter not in answer:
+            wrong += 1
+
+    session["hangman_guessed"] = guessed
+    session["hangman_wrong"] = wrong
+
+    masked = " ".join(c if c in guessed else "_" for c in answer)
+
+    win = "_" not in masked
+    lose = wrong >= 6
+
+    return jsonify({
+        "masked": masked,
+        "guessed": guessed,
+        "wrong": wrong,
+        "win": win,
+        "lose": lose,
+        "answer": answer if lose else None
+    })
+
+
+@app.route('/hangman_hint', methods=['POST'])
+def hangman_hint():
+    wrong = session.get("hangman_wrong", 0)
+
+    # 扣一條命
+    wrong += 1
+    session["hangman_wrong"] = wrong
+
+    with open('data/hangman/describe.txt', 'r', encoding='utf-8') as f:
+        hint_text = f.read()
+
+    lose = wrong >= 6
+
+    return jsonify({
+        "hint": hint_text,
+        "wrong": wrong,
+        "lose": lose
+    })
 
 
 
