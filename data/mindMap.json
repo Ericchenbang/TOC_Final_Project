@@ -1,23 +1,70 @@
 {
   "id": "root",
-  "text": "2025 BBC Sports Personality of the Year Quiz",
+  "text": "Nnena Kalu wins Turner Prize – impact on Project Ability studio",
   "children": [
     {
       "id": "n1",
-      "text": "Luke Littler (Darts Player)",
+      "text": "Nnena Kalu – Artist Profile & Achievement",
       "children": [
         {
           "id": "n1-1",
-          "text": "Shortlisted Athlete",
-          "children": []
+          "text": "Personal background",
+          "children": [
+            {
+              "id": "n1-1-1",
+              "text": "Born in Glasgow, moved to England as a child",
+              "children": []
+            },
+            {
+              "id": "n1-1-2",
+              "text": "Autistic with limited verbal communication",
+              "children": []
+            },
+            {
+              "id": "n1-1-3",
+              "text": "Age 59 at time of award",
+              "children": []
+            }
+          ]
         },
         {
           "id": "n1-2",
-          "text": "Quiz Section",
+          "text": "Turner Prize win",
           "children": [
             {
               "id": "n1-2-1",
-              "text": "Test your knowledge about Luke Littler",
+              "text": "First learning‑disabled artist to win the prize",
+              "children": []
+            },
+            {
+              "id": "n1-2-2",
+              "text": "Judges' comments: compelling sculptures, beautiful intricate drawings",
+              "children": []
+            },
+            {
+              "id": "n1-2-3",
+              "text": "Significance: broke a stubborn glass ceiling",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "n1-3",
+          "text": "Artistic style & works",
+          "children": [
+            {
+              "id": "n1-3-1",
+              "text": "Brightly coloured sculptures wrapped in ribbon, string, card, VHS tape",
+              "children": []
+            },
+            {
+              "id": "n1-3-2",
+              "text": "Drawings of swirling, tornado‑like vortexes",
+              "children": []
+            },
+            {
+              "id": "n1-3-3",
+              "text": "Creative process described as mesmerizing, with chalk sounds",
               "children": []
             }
           ]
@@ -26,32 +73,152 @@
     },
     {
       "id": "n2",
-      "text": "Other Contenders",
+      "text": "Project Ability – Charity & Studio",
       "children": [
         {
           "id": "n2-1",
-          "text": "Hannah Hampton (Football)",
-          "children": []
+          "text": "Mission and support",
+          "children": [
+            {
+              "id": "n2-1-1",
+              "text": "Supports artists of all abilities, including learning disabilities",
+              "children": []
+            },
+            {
+              "id": "n2-1-2",
+              "text": "Provides studio space in Glasgow's Trongate",
+              "children": []
+            }
+          ]
         },
         {
           "id": "n2-2",
-          "text": "Chloe Kelly (Football)",
-          "children": []
+          "text": "Role in Kalu's career",
+          "children": [
+            {
+              "id": "n2-2-1",
+              "text": "Hosted her first solo exhibition at Glasgow International 2018",
+              "children": []
+            },
+            {
+              "id": "n2-2-2",
+              "text": "Executive Artistic Director Elisabeth Gibson observed her creative process",
+              "children": []
+            },
+            {
+              "id": "n2-2-3",
+              "text": "Provided visibility leading to further opportunities",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "n3",
+      "text": "Community Reactions",
+      "children": [
+        {
+          "id": "n3-1",
+          "text": "Fellow artists",
+          "children": [
+            {
+              "id": "n3-1-1",
+              "text": "Kendal (18) – “anyone can be an artist, regardless of struggles”",
+              "children": []
+            },
+            {
+              "id": "n3-1-2",
+              "text": "Andrew (50) – learning disabled, Down's syndrome, inspired and hopeful",
+              "children": []
+            }
+          ]
         },
         {
-          "id": "n2-3",
-          "text": "Ellie Kildunne (Rugby)",
-          "children": []
+          "id": "n3-2",
+          "text": "Charity leadership",
+          "children": [
+            {
+              "id": "n3-2-1",
+              "text": "Elisabeth Gibson – thrilled, believes win will reduce judgment",
+              "children": []
+            },
+            {
+              "id": "n3-2-2",
+              "text": "Charlotte Hollinshead – described win as seismic, breaking glass ceiling",
+              "children": []
+            }
+          ]
         },
         {
-          "id": "n2-4",
-          "text": "Rory McIlroy (Golf)",
-          "children": []
+          "id": "n3-3",
+          "text": "Critics & public opinion",
+          "children": [
+            {
+              "id": "n3-3-1",
+              "text": "Positive: judges praised intricacy and uniqueness",
+              "children": []
+            },
+            {
+              "id": "n3-3-2",
+              "text": "Negative: Waldemar Januszcack (Sunday Times) called work “worst art” and accused virtue‑signalling",
+              "children": []
+            },
+            {
+              "id": "n3-3-3",
+              "text": "Gibson’s response – criticism expected, Turner Prize thrives on controversy",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "n4",
+      "text": "Impact & Inspiration",
+      "children": [
+        {
+          "id": "n4-1",
+          "text": "Motivation for other artists at the studio",
+          "children": [
+            {
+              "id": "n4-1-1",
+              "text": "Shows that learning disabilities are not a barrier to success",
+              "children": []
+            },
+            {
+              "id": "n4-1-2",
+              "text": "Encourages artists to pursue ambitious goals, e.g., winning awards",
+              "children": []
+            }
+          ]
         },
         {
-          "id": "n2-5",
-          "text": "Lando Norris (Formula 1)",
-          "children": []
+          "id": "n4-2",
+          "text": "Future goals",
+          "children": [
+            {
+              "id": "n4-2-1",
+              "text": "Andrew expressed desire to win the Turner Prize himself",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "n4-3",
+          "text": "Broader perception of learning‑disabled artists",
+          "children": [
+            {
+              "id": "n4-3-1",
+              "text": "Potential shift towards greater acceptance and less judgment",
+              "children": []
+            },
+            {
+              "id": "n4-3-2",
+              "text": "Increased visibility may open more exhibition opportunities",
+              "children": []
+            }
+          ]
         }
       ]
     }

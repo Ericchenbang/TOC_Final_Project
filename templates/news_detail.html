@@ -37,7 +37,8 @@
         <div class="action-bar learning-controls-container">
             <h2 class="form-title">Customize Your Learning</h2>
             <form action="{{ url_for('start_learn') }}" method="post" class="learning-form">
-                
+                <input type="hidden" name="category" value="{{ category }}">
+                <input type="hidden" name="article_id" value="{{ article.id }}">
                 <div class="form-row">
                     <div class="form-group inline-form-group">
                         <label for="cefr-select">CEFR Level:</label>
@@ -62,14 +63,17 @@
                     👨‍🏫 Start Vocabulary Learning
                 </button>
 
-                <a href="{{ url_for('mindmap') }}">
-                    <button type="button">🧠 View Mind Map</button>
-                </a>
-                <a href="{{ url_for('reading') }}">
-                    <button type="button">📖 Reading Quiz</button>
-                </a>
+                
             </form>
         </div>
+        <form action="/generate_mindmap" method="POST">
+            <button type="submit">🧠 心智圖</button>
+        </form>
+
+        <form action="/generate_reading" method="POST">
+            <button type="submit">📖 閱讀測驗</button>
+        </form>
         </div>
+        
 </body>
 </html>

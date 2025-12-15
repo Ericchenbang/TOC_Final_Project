@@ -2,66 +2,65 @@
   {
     "id": "Q1",
     "type": "Multiple_Answer",
-    "question": "Which sport does Luke Littler compete in?",
+    "question": "Which of the following statements are true about the Bondi Beach attack according to the article?",
     "choices": [
-      "Darts",
-      "Snooker",
-      "Cricket",
-      "Football"
+      "The attack targeted a Hanukkah celebration.",
+      "At least 15 civilians were killed.",
+      "The alleged shooters were a father and his son.",
+      "The older shooter survived the incident."
     ],
     "correct_choices": [
-      0
+      0,
+      1,
+      2
     ],
-    "explanation": "Luke Littler is a darts player, as indicated by the article referring to him as the darts player among the six shortlisted athletes."
+    "explanation": "The article states the attack was aimed at a Hanukkah celebration, at least 15 civilians were killed, and the shooters were a father and his son, with the older man dying at the scene."
   },
   {
     "id": "Q2",
     "type": "True_Or_False",
-    "question": "Rory McIlroy is a professional golfer.",
-    "answer": true,
-    "explanation": "Rory McIlroy is widely known as a top‑level professional golfer, and he is listed among the contenders for the 2025 Sports Personality of the Year."
+    "question": "Michael Vaughan was inside a restaurant that was more than a kilometer away from Bondi Beach when he heard the gunshots.",
+    "answer": false,
+    "explanation": "Vaughan was locked inside a restaurant only a few hundred yards (approximately 300 yards) from Bondi Beach, not more than a kilometer away."
   },
   {
     "id": "Q3",
     "type": "Multiple_Answer",
-    "question": "Which of the following shortlisted athletes are football (soccer) players?",
+    "question": "What measures or tributes were planned for the third Ashes Test in Adelaide?",
     "choices": [
-      "Hannah Hampton",
-      "Chloe Kelly",
-      "Ellie Kildunne",
-      "Lando Norris",
-      "Rory McIlroy"
+      "A moment of silence before the match.",
+      "Both teams wearing black armbands.",
+      "The match was cancelled.",
+      "A special charity match after the test."
     ],
     "correct_choices": [
       0,
       1
     ],
-    "explanation": "Both Hannah Hampton and Chloe Kelly are England women’s football internationals. Ellie Kildunne plays rugby, Lando Norris is a Formula 1 driver, and Rory McIlroy is a golfer."
+    "explanation": "Cricket Australia confirmed a moment of silence and that both sides would wear black armbands; the match was not cancelled and no charity match was mentioned."
   },
   {
     "id": "Q4",
     "type": "True_Or_False",
-    "question": "Lando Norris is a Formula 1 driver.",
-    "answer": true,
-    "explanation": "Lando Norris is a British Formula 1 driver for McLaren, and he is one of the six athletes shortlisted for the award."
+    "question": "According to the article, Nathan Lyon was playing for Queensland during the incident.",
+    "answer": false,
+    "explanation": "The article identifies Nathan Lyon as a spinner for New South Wales, not Queensland."
   },
   {
     "id": "Q5",
     "type": "Multiple_Answer",
-    "question": "Which sports are represented among the six shortlisted athletes?",
+    "question": "Which individuals expressed their condolences or support following the attack?",
     "choices": [
-      "Darts",
-      "Rugby Union",
-      "Golf",
-      "Formula 1",
-      "Athletics"
+      "England vice-captain Harry Brook",
+      "South Australia Premier Peter Malinauskas",
+      "England & Wales Cricket Board",
+      "Australian Prime Minister Anthony Albanese"
     ],
     "correct_choices": [
       0,
       1,
-      2,
-      3
+      2
     ],
-    "explanation": "The shortlist includes Luke Littler (darts), Ellie Kildunne (rugby union), Rory McIlroy (golf) and Lando Norris (Formula 1). No athlete on the list competes in athletics."
+    "explanation": "Harry Brook, Peter Malinauskas, and the England & Wales Cricket Board all issued statements of support; the article does not mention a statement from the Australian Prime Minister."
   }
 ]

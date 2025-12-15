@@ -4,6 +4,9 @@ import os
 import re
 import random
 
+from english_learning_service import EnglishLearningService
+
+
 app = Flask(__name__)
 app.secret_key = "hangman-secret-key"
 
@@ -18,12 +21,21 @@ def index():
 # watch news
 @app.route('/news', methods=['POST'])
 def news():
-    #session['cefr'] = request.form.get('cefr')
-    #session['count'] = int(request.form.get('count'))
     category = request.form.get('news_type')
-    return redirect(url_for('news_list', category=category))
+    output_path = f"data/news/{category}.json"
 
-@app.route('/news/<category>')
+    service = EnglishLearningService()
+    success = service.get_news_by_category(
+        category=category,
+        output_path=output_path
+    )
+
+    if success is True:
+        return redirect(url_for('news_list', category=category))
+    else:
+        return "Failed to fetch news", 500
+
+@app.route('/news_list/<category>')
 def news_list(category):
     news_path = f"data/news/{category}.json"
 
@@ -37,7 +49,7 @@ def news_list(category):
     )
 
 
-@app.route('/news/<category>/<int:article_id>')
+@app.route('/news_detail/<category>/<int:article_id>')
 def news_detail(category, article_id):
     news_path = f"data/news/{category}.json"
 
@@ -53,6 +65,11 @@ def news_detail(category, article_id):
     if article is None:
         return "Article not found", 404
 
+    session['current_article_category'] = category
+    session['current_article_id'] = article_id
+    session['current_article_text'] = article['content']
+    session['current_article_title'] = article.get('title')
+
     return render_template(
         'news_detail.html',
         category=category,
@@ -61,6 +78,25 @@ def news_detail(category, article_id):
 
 #--------------------------------------------------------------#
 #--------------------------------------------------------------#
+@app.route('/generate_mindmap', methods=['POST'])
+def generate_mindmap_route():
+    article_id = session.get('current_article_id')
+    article_text = session.get('current_article_text')
+    if not article_id or not article_text:
+        return
+    
+    if session.get('mindmap_article_id') == article_id \
+       and os.path.exists('data/mindMap.json'):
+        return redirect(url_for('mindmap'))
+
+    service = EnglishLearningService()
+    service.generate_mind_map(
+        article_text,
+        output_path='data/mindMap.json'
+    )
+    session['mindmap_article_id'] = article_id
+    return redirect(url_for('mindmap'))
+
 @app.route('/mindmap')
 def mindmap():
     with open('data/mindMap.json', 'r', encoding='utf-8') as f:
@@ -73,6 +109,25 @@ def mindmap():
 
 #--------------------------------------------------------------#
 #--------------------------------------------------------------#
+@app.route('/generate_reading', methods=['POST'])
+def generate_reading_route():
+    article_id = session.get('current_article_id')
+    article_text = session.get('current_article_text')
+    if not article_id or not article_text:
+        return
+    
+    if session.get('reading_article_id') == article_id \
+       and os.path.exists('data/reading.json'):
+        return redirect(url_for('reading'))
+
+    service = EnglishLearningService()
+    service.generate_reading_quiz(
+        article_text,
+        output_path='data/reading.json'
+    )
+    session['reading_article_id'] = article_id
+    return redirect(url_for('reading'))
+
 @app.route('/reading', methods=['GET'])
 def reading():
     with open('data/reading.json', 'r', encoding='utf-8') as f:
@@ -88,9 +143,19 @@ def reading():
 def submit_reading():
     with open('data/reading.json', 'r', encoding='utf-8') as f:
         questions = json.load(f)
+        
+    for q in questions:
+        qid = q["id"]
+
+        if q["type"] == "True_Or_False":
+            if request.form.get(qid) is None:
+                return redirect(url_for('reading'))
+
+        else:  # Multiple_Answer
+            if not request.form.getlist(qid):
+                return redirect(url_for('reading'))
 
     result = {}
-
     for q in questions:
         qid = q["id"]
 
@@ -135,10 +200,48 @@ def submit_reading():
 #--------------------------------------------------------------#
 @app.route('/start_learn', methods=['POST'])
 def start_learn():
+    category = request.form.get('category')
+    article_id = int(request.form.get('article_id'))
+    cefr = request.form.get('cefr')
+    count = int(request.form.get('count'))
     session['cefr'] = request.form.get('cefr')
     session['count'] = int(request.form.get('count'))
 
+    # read news file
+    news_path = f"data/news/{category}.json"
+    with open(news_path, 'r', encoding='utf-8') as f:
+        news_data = json.load(f)
+
+    article = next(
+        (a for a in news_data["articles"] if a["id"] == article_id),
+        None
+    )
+
+    if article is None:
+        return "Article not found", 404
+
+    article_content = article.get("content") or article.get("summary")
+    if not article_content:
+        return "Article content missing", 500
+
+    # call LLM produce vocabulary
+    service = EnglishLearningService()
+
+    vocab_path = "data/vocabulary/words.json"
+
+    success = service.get_vocabulary_from_news(
+        article_content=article_content,
+        CEFR=cefr,
+        n_words=count,
+        output_path=vocab_path
+    )
+
+    if success is not True:
+        return "Failed to generate vocabulary", 500
+
     return redirect(url_for('learn'))
+
+
 
 
 @app.route('/learn', methods=['GET'])
@@ -174,12 +277,26 @@ def check_sentence():
     level = request.form.get('level')
     count = int(request.form.get('count'))
 
-    # mock reply
-    mock_result = {
+    service = EnglishLearningService()
+    result_path = "data/vocabulary/sentence_feedback.json"
+    success = service.check_vocabulary_usage(
+        word_list=[word],
+        sentences=[sentence],
+        output_path=result_path
+    )
+
+    if success is not True:
+        return "LLM sentence check failed", 500
+    
+    # read LLM feedback
+    with open(result_path, 'r', encoding='utf-8') as f:
+        resp = json.load(f)
+
+    feedback_result = {
         "word": word,
         "user_sentence": sentence,
-        "is_correct": False if "bad" in sentence else True,
-        "explanation": "Example, false if bad inside"
+        "is_correct": resp[0].get("is_correct"),
+        "explanation": resp[0].get("explanation")
     }
 
     # load vocabulary
@@ -194,7 +311,7 @@ def check_sentence():
         'vocabulary.html',
         words=words,
         level=level,
-        feedback={word: mock_result},
+        feedback={word: feedback_result},
         anchor=word   # use for scroll 
     )
 

@@ -1,62 +1,62 @@
 [
   {
-    "word": "relaxed",
-    "part_of_speech": "adjective",
-    "zh-Hant_definition": "放鬆的，輕鬆的",
-    "example_sentence": "Ben Stokes showed a relaxed attitude during the media interview."
-  },
-  {
-    "word": "profile",
-    "part_of_speech": "noun",
-    "zh-Hant_definition": "個人檔案；形象",
-    "example_sentence": "The players were aware of their public profile and the cameras."
-  },
-  {
-    "word": "inconspicuous",
-    "part_of_speech": "adjective",
-    "zh-Hant_definition": "不顯眼的，低調的",
-    "example_sentence": "It is difficult for the England players to remain inconspicuous in Noosa."
-  },
-  {
-    "word": "coach",
-    "part_of_speech": "noun",
-    "zh-Hant_definition": "教練；指導員",
-    "example_sentence": "England head coach Brendon McCullum enjoys spending time in Noosa."
-  },
-  {
-    "word": "training",
-    "part_of_speech": "noun",
-    "zh-Hant_definition": "訓練；培訓",
-    "example_sentence": "The squad will have three training sessions before the third Test."
-  },
-  {
-    "word": "break",
-    "part_of_speech": "noun",
-    "zh-Hant_definition": "休息；間歇",
-    "example_sentence": "The players took a short break in Noosa between the second and third Tests."
-  },
-  {
-    "word": "scrutiny",
-    "part_of_speech": "noun",
-    "zh-Hant_definition": "仔細審查；審視",
-    "example_sentence": "England's off‑field activities have been under intense scrutiny from the Australian press."
-  },
-  {
-    "word": "criticised",
+    "word": "detained",
     "part_of_speech": "verb",
-    "zh-Hant_definition": "批評；指責",
-    "example_sentence": "Their training plans were criticised by former players."
+    "zh-Hant_definition": "被拘留、扣押",
+    "example_sentence": "The person of interest was detained at a hotel in the town of Coventry in the early hours."
   },
   {
-    "word": "moderation",
-    "part_of_speech": "noun",
-    "zh-Hant_definition": "節制；適度",
-    "example_sentence": "Malan said everything should be done in moderation."
+    "word": "released",
+    "part_of_speech": "verb",
+    "zh-Hant_definition": "釋放、解除羈押",
+    "example_sentence": "Officials detained and released a previous \"person of interest\"."
   },
   {
-    "word": "bubble",
+    "word": "vigil",
     "part_of_speech": "noun",
-    "zh-Hant_definition": "隔離環境；封閉小圈子",
-    "example_sentence": "During the 2021‑22 tour the team lived in a bubble because of Covid."
+    "zh-Hant_definition": "燭光守夜、守夜儀式",
+    "example_sentence": "On Sunday evening, the community gathered for a candlelit vigil honoring victims of the shooting."
+  },
+  {
+    "word": "investigation",
+    "part_of_speech": "noun",
+    "zh-Hant_definition": "調查、偵查",
+    "example_sentence": "The investigation is ongoing and authorities are searching for additional video evidence."
+  },
+  {
+    "word": "authorities",
+    "part_of_speech": "noun",
+    "zh-Hant_definition": "當局、官方機關",
+    "example_sentence": "Authorities did not say what had prompted them to detain the person in the first place."
+  },
+  {
+    "word": "campaign",
+    "part_of_speech": "noun",
+    "zh-Hant_definition": "持續的行動或運動；此處指全力以赴的行動",
+    "example_sentence": "FBI Director Kash Patel said his agency will continue an all‑out 24/7 campaign until justice is fully served."
+  },
+  {
+    "word": "critical",
+    "part_of_speech": "adjective",
+    "zh-Hant_definition": "危急的、病情危重的",
+    "example_sentence": "One of those injured in the incident was in a critical condition."
+  },
+  {
+    "word": "stable",
+    "part_of_speech": "adjective",
+    "zh-Hant_definition": "病情穩定的、狀態平穩的",
+    "example_sentence": "Seven others remained stable while another had been discharged from the hospital."
+  },
+  {
+    "word": "discharged",
+    "part_of_speech": "verb",
+    "zh-Hant_definition": "出院、解除（醫療）限制",
+    "example_sentence": "Another patient had been discharged from the hospital after treatment."
+  },
+  {
+    "word": "vigilant",
+    "part_of_speech": "adjective",
+    "zh-Hant_definition": "警惕的、保持警覺的",
+    "example_sentence": "The university asked every member of the Brown community to be vigilant in their own activities on campus."
   }
 ]

@@ -2,55 +2,65 @@
 <html>
 <head>
     <title>Reading Quiz</title>
+    <script>
+        function validateQuiz() {
+            {% for q in questions %}
+                {% if q.type == "True_Or_False" %}
+                    if (!document.querySelector('input[name="{{ q.id }}"]:checked')) {
+                        alert("Please answer all questions before submitting.");
+                        return false;
+                    }
+                {% elif q.type == "Multiple_Answer" %}
+                    if (document.querySelectorAll(
+                        'input[name="{{ q.id }}"]:checked'
+                    ).length === 0) {
+                        alert("Please answer all questions before submitting.");
+                        return false;
+                    }
+                {% endif %}
+            {% endfor %}
+            return true;
+        }
+        </script>
 </head>
 <body>
 
 <h1>📖 Reading Quiz</h1>
 
-<form action="/submit_reading" method="POST">
+<form action="/submit_reading" method="POST" onsubmit="return validateQuiz();">
 
 {% for q in questions %}
     <hr>
     <h3>{{ loop.index }}. {{ q.question }}</h3>
 
     {% if q.type == "True_Or_False" %}
-        <label>
-            <input type="radio"
-                    name="{{ q.id }}"
-                    value="true"
-                    {% if result and result[q.id].user == 'true' %}checked{% endif %}
-                    {% if result %}disabled{% endif %}>
-            True
-        </label><br>
+        {% set correct = q.answer|string|lower %}
+        {% set user = result[q.id].user if result else None %}
 
-        <label>
-            <input type="radio"
-                    name="{{ q.id }}"
-                    value="false"
-                    {% if result and result[q.id].user == 'false' %}checked{% endif %}
-                    {% if result %}disabled{% endif %}>
-            False
-        </label>
-        <label
-            {% if result %}
-                {% if result[q.id].user == true and q.answer != true %}
-                    style="color:red;"
-                {% elif q.answer == true %}
-                    style="color:green; font-weight:bold;"
+        {% for val in ["true", "false"] %}
+            <label
+                {% if result %}
+                    {% if val == correct %}
+                        style="color:green; font-weight:bold;"
+                    {% elif val == user and val != correct %}
+                        style="color:red;"
+                    {% endif %}
                 {% endif %}
-            {% endif %}
-        >
-            <input type="radio"
+            >
+                <input type="radio"
                     name="{{ q.id }}"
-                    value="true"
-                    {% if result and result[q.id].user == true %}checked{% endif %}
+                    value="{{ val }}"
+                    required
+                    {% if user == val %}checked{% endif %}
                     {% if result %}disabled{% endif %}>
-            True
-            {% if result and q.answer == true %} ✔{% endif %}
-            {% if result and result[q.id].user == true and q.answer != true %} ✘{% endif %}
-        </label>
+                {{ val|capitalize }}
 
-
+                {% if result %}
+                    {% if val == correct %} ✔{% endif %}
+                    {% if val == user and val != correct %} ✘{% endif %}
+                {% endif %}
+            </label><br>
+        {% endfor %}
     {% elif q.type == "Multiple_Answer" %}
         {% for c in q.choices %}
             <label
@@ -104,8 +114,13 @@
 
 <hr>
 
-<a href="javascript:history.back()">⬅ Back</a> |
-<a href="/">🏠 Home</a>
+<a href="{{ url_for(
+    'news_detail',
+    category=session['current_article_category'],
+    article_id=session['current_article_id']
+) }}">
+⬅ Back to Article
+</a>
 
 </body>
 </html>
