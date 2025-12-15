@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mind Map</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin-left: 20px;
+            padding-left: 20px;
+            border-left: 1px dashed #aaa;
+        }
+        li {
+            margin: 6px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🧠 Mind Map</h1>
+
+{% macro render_node(node) %}
+    <li>
+        {{ node.text }}
+        {% if node.children %}
+            <ul>
+                {% for child in node.children %}
+                    {{ render_node(child) }}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </li>
+{% endmacro %}
+
+<ul>
+    {{ render_node(mindmap) }}
+</ul>
+
+<hr>
+
+<a href="javascript:history.back()">⬅ Back</a> |
+<a href="/">🏠 Home</a>
+
+</body>
+</html>

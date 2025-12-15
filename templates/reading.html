@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reading Quiz</title>
+</head>
+<body>
+
+<h1>📖 Reading Quiz</h1>
+
+<form action="/submit_reading" method="POST">
+
+{% for q in questions %}
+    <hr>
+    <h3>{{ loop.index }}. {{ q.question }}</h3>
+
+    {% if q.type == "True_Or_False" %}
+        <label>
+            <input type="radio"
+                    name="{{ q.id }}"
+                    value="true"
+                    {% if result and result[q.id].user == 'true' %}checked{% endif %}
+                    {% if result %}disabled{% endif %}>
+            True
+        </label><br>
+
+        <label>
+            <input type="radio"
+                    name="{{ q.id }}"
+                    value="false"
+                    {% if result and result[q.id].user == 'false' %}checked{% endif %}
+                    {% if result %}disabled{% endif %}>
+            False
+        </label>
+        <label
+            {% if result %}
+                {% if result[q.id].user == true and q.answer != true %}
+                    style="color:red;"
+                {% elif q.answer == true %}
+                    style="color:green; font-weight:bold;"
+                {% endif %}
+            {% endif %}
+        >
+            <input type="radio"
+                    name="{{ q.id }}"
+                    value="true"
+                    {% if result and result[q.id].user == true %}checked{% endif %}
+                    {% if result %}disabled{% endif %}>
+            True
+            {% if result and q.answer == true %} ✔{% endif %}
+            {% if result and result[q.id].user == true and q.answer != true %} ✘{% endif %}
+        </label>
+
+
+    {% elif q.type == "Multiple_Answer" %}
+        {% for c in q.choices %}
+            <label
+                {% if result %}
+                    {% if loop.index0|string in result[q.id].correct %}
+                        style="color:green; font-weight:bold;"
+                    {% elif loop.index0|string in result[q.id].user %}
+                        style="color:red;"
+                    {% endif %}
+                {% endif %}
+            >
+                <input type="checkbox"
+                        name="{{ q.id }}"
+                        value="{{ loop.index0 }}"
+                        {% if result and loop.index0|string in result[q.id].user %}checked{% endif %}
+                        {% if result %}disabled{% endif %}>
+                {{ c }}
+
+                {% if result %}
+                    {% if loop.index0|string in result[q.id].correct %}
+                        ✔
+                    {% elif loop.index0|string in result[q.id].user %}
+                        ✘
+                    {% endif %}
+                {% endif %}
+            </label><br>
+
+        {% endfor %}
+    {% endif %}
+
+    {% if result %}
+        {% if result[q.id].is_correct %}
+            <p style="color:green;">✔ Correct</p>
+        {% else %}
+            <p style="color:red;">✘ Incorrect</p>
+        {% endif %}
+        <p><i>{{ result[q.id].explanation }}</i></p>
+    {% endif %}
+    
+{% endfor %}
+
+<br>
+
+{% if not result %}
+    <button type="submit">Submit Quiz</button>
+{% else %}
+    <p><b>🔒 Quiz submitted</b></p>
+{% endif %}
+
+</form>
+
+<hr>
+
+<a href="javascript:history.back()">⬅ Back</a> |
+<a href="/">🏠 Home</a>
+
+</body>
+</html>

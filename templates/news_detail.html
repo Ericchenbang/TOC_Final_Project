@@ -34,14 +34,42 @@
 
         <hr class="separator">
 
-        <div class="action-bar">
-            <form action="{{ url_for('learn') }}" method="get" class="inline-form">
-                <button type="submit" class="primary-action-btn large-btn">
+        <div class="action-bar learning-controls-container">
+            <h2 class="form-title">Customize Your Learning</h2>
+            <form action="{{ url_for('start_learn') }}" method="post" class="learning-form">
+                
+                <div class="form-row">
+                    <div class="form-group inline-form-group">
+                        <label for="cefr-select">CEFR Level:</label>
+                        <select id="cefr-select" name="cefr" required>
+                            <option value="">-- choose --</option>
+                            <option value="A1">A1 (Beginner)</option>
+                            <option value="A2">A2 (Elementary)</option>
+                            <option value="B1">B1 (Intermediate)</option>
+                            <option value="B2">B2 (Upper Intermediate)</option>
+                            <option value="C1">C1 (Advanced)</option>
+                            <option value="C2">C2 (Proficiency)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group inline-form-group">
+                        <label for="count-input">Number of words:</label>
+                        <input type="number" id="count-input" name="count" min="1" max="30" required value="10" placeholder="10">
+                    </div>
+                </div>
+                
+                <button type="submit" class="primary-action-btn large-btn full-width-mobile">
                     👨‍🏫 Start Vocabulary Learning
                 </button>
+
+                <a href="{{ url_for('mindmap') }}">
+                    <button type="button">🧠 View Mind Map</button>
+                </a>
+                <a href="{{ url_for('reading') }}">
+                    <button type="button">📖 Reading Quiz</button>
+                </a>
             </form>
         </div>
-
-    </div>
+        </div>
 </body>
 </html>

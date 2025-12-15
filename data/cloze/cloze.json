@@ -1,0 +1,17 @@
+{
+  "question": "During the town hall meeting, the audience's ___[1]___ was mixed; some members felt reassured while others remained skeptical. To address the concerns, the council decided to adopt a pragmatic ___[2]___, focusing on transparent communication and incremental policy changes. The speaker highlighted how a careful ___[3]___ of scientific data and personal testimonies could bridge the gap between experts and residents, ultimately fostering a shared sense of responsibility.",
+  "ans": [
+    {
+      "idx": 1,
+      "word": "reaction"
+    },
+    {
+      "idx": 2,
+      "word": "approach"
+    },
+    {
+      "idx": 3,
+      "word": "conjunction"
+    }
+  ]
+}

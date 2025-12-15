@@ -1,0 +1,67 @@
+[
+  {
+    "id": "Q1",
+    "type": "Multiple_Answer",
+    "question": "Which sport does Luke Littler compete in?",
+    "choices": [
+      "Darts",
+      "Snooker",
+      "Cricket",
+      "Football"
+    ],
+    "correct_choices": [
+      0
+    ],
+    "explanation": "Luke Littler is a darts player, as indicated by the article referring to him as the darts player among the six shortlisted athletes."
+  },
+  {
+    "id": "Q2",
+    "type": "True_Or_False",
+    "question": "Rory McIlroy is a professional golfer.",
+    "answer": true,
+    "explanation": "Rory McIlroy is widely known as a top‑level professional golfer, and he is listed among the contenders for the 2025 Sports Personality of the Year."
+  },
+  {
+    "id": "Q3",
+    "type": "Multiple_Answer",
+    "question": "Which of the following shortlisted athletes are football (soccer) players?",
+    "choices": [
+      "Hannah Hampton",
+      "Chloe Kelly",
+      "Ellie Kildunne",
+      "Lando Norris",
+      "Rory McIlroy"
+    ],
+    "correct_choices": [
+      0,
+      1
+    ],
+    "explanation": "Both Hannah Hampton and Chloe Kelly are England women’s football internationals. Ellie Kildunne plays rugby, Lando Norris is a Formula 1 driver, and Rory McIlroy is a golfer."
+  },
+  {
+    "id": "Q4",
+    "type": "True_Or_False",
+    "question": "Lando Norris is a Formula 1 driver.",
+    "answer": true,
+    "explanation": "Lando Norris is a British Formula 1 driver for McLaren, and he is one of the six athletes shortlisted for the award."
+  },
+  {
+    "id": "Q5",
+    "type": "Multiple_Answer",
+    "question": "Which sports are represented among the six shortlisted athletes?",
+    "choices": [
+      "Darts",
+      "Rugby Union",
+      "Golf",
+      "Formula 1",
+      "Athletics"
+    ],
+    "correct_choices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "The shortlist includes Luke Littler (darts), Ellie Kildunne (rugby union), Rory McIlroy (golf) and Lando Norris (Formula 1). No athlete on the list competes in athletics."
+  }
+]

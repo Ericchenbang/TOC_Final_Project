@@ -1,0 +1,59 @@
+{
+  "id": "root",
+  "text": "2025 BBC Sports Personality of the Year Quiz",
+  "children": [
+    {
+      "id": "n1",
+      "text": "Luke Littler (Darts Player)",
+      "children": [
+        {
+          "id": "n1-1",
+          "text": "Shortlisted Athlete",
+          "children": []
+        },
+        {
+          "id": "n1-2",
+          "text": "Quiz Section",
+          "children": [
+            {
+              "id": "n1-2-1",
+              "text": "Test your knowledge about Luke Littler",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "n2",
+      "text": "Other Contenders",
+      "children": [
+        {
+          "id": "n2-1",
+          "text": "Hannah Hampton (Football)",
+          "children": []
+        },
+        {
+          "id": "n2-2",
+          "text": "Chloe Kelly (Football)",
+          "children": []
+        },
+        {
+          "id": "n2-3",
+          "text": "Ellie Kildunne (Rugby)",
+          "children": []
+        },
+        {
+          "id": "n2-4",
+          "text": "Rory McIlroy (Golf)",
+          "children": []
+        },
+        {
+          "id": "n2-5",
+          "text": "Lando Norris (Formula 1)",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

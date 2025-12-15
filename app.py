@@ -18,8 +18,8 @@ def index():
 # watch news
 @app.route('/news', methods=['POST'])
 def news():
-    session['cefr'] = request.form.get('cefr')
-    session['count'] = int(request.form.get('count'))
+    #session['cefr'] = request.form.get('cefr')
+    #session['count'] = int(request.form.get('count'))
     category = request.form.get('news_type')
     return redirect(url_for('news_list', category=category))
 
@@ -61,6 +61,85 @@ def news_detail(category, article_id):
 
 #--------------------------------------------------------------#
 #--------------------------------------------------------------#
+@app.route('/mindmap')
+def mindmap():
+    with open('data/mindMap.json', 'r', encoding='utf-8') as f:
+        mindmap_data = json.load(f)
+
+    return render_template(
+        'mindmap.html',
+        mindmap=mindmap_data
+    )
+
+#--------------------------------------------------------------#
+#--------------------------------------------------------------#
+@app.route('/reading', methods=['GET'])
+def reading():
+    with open('data/reading.json', 'r', encoding='utf-8') as f:
+        questions = json.load(f)
+
+    return render_template(
+        'reading.html',
+        questions=questions,
+        result=None
+    )
+
+@app.route('/submit_reading', methods=['POST'])
+def submit_reading():
+    with open('data/reading.json', 'r', encoding='utf-8') as f:
+        questions = json.load(f)
+
+    result = {}
+
+    for q in questions:
+        qid = q["id"]
+
+        if q["type"] == "True_Or_False":
+            user_answer = request.form.get(qid)
+            correct = str(q["answer"]).lower()
+
+            is_correct = (user_answer == correct)
+
+            result[qid] = {
+                "type": q["type"],
+                "user": user_answer,
+                "is_correct": is_correct,
+                "explanation": q["explanation"]
+            }
+
+        else:  # Multiple_Answer
+            user_choices = request.form.getlist(qid)
+            correct_choices = [str(i) for i in q["correct_choices"]]
+
+            is_correct = sorted(user_choices) == sorted(correct_choices)
+
+            result[qid] = {
+                "type": q["type"],
+                "user": user_choices,
+                "correct": correct_choices,
+                "is_correct": is_correct,
+                "explanation": q["explanation"]
+            }
+
+    return render_template(
+        'reading.html',
+        questions=questions,
+        result=result
+    )
+
+
+
+
+
+#--------------------------------------------------------------#
+#--------------------------------------------------------------#
+@app.route('/start_learn', methods=['POST'])
+def start_learn():
+    session['cefr'] = request.form.get('cefr')
+    session['count'] = int(request.form.get('count'))
+
+    return redirect(url_for('learn'))
+
 
 @app.route('/learn', methods=['GET'])
 def learn():
@@ -122,7 +201,7 @@ def check_sentence():
 #--------------------------------------------------------------#
 #--------------------------------------------------------------#
 
-''' Cloze '''
+# Cloze 
 @app.route('/cloze', methods=['GET'])
 def cloze():
     # read voc
@@ -162,9 +241,11 @@ def cloze_select():
 
 @app.route('/cloze_play', methods=['GET'])
 def cloze_play():
-    # read test.txt
-    with open('data/cloze/test.txt', 'r', encoding='utf-8') as f:
-        text = f.read()
+    # read cloze json
+    with open('data/cloze/cloze.json', 'r', encoding='utf-8') as f:
+        cloze_data = json.load(f)
+
+    text = cloze_data["question"]
 
     # read input.json
     with open('data/cloze/input.json', 'r', encoding='utf-8') as f:
@@ -184,15 +265,19 @@ def cloze_play():
         result=None
     )
 
-
-#--------------------------------------------------------------#
-#--------------------------------------------------------------#
-
 @app.route('/submit_cloze', methods=['POST'])
 def submit_cloze():
-    # read answer
-    with open('data/cloze/answer.txt', 'r', encoding='utf-8') as f:
-        answers = json.load(f)
+    # read cloze json
+    with open('data/cloze/cloze.json', 'r', encoding='utf-8') as f:
+        cloze_data = json.load(f)
+
+    text = cloze_data["question"]
+
+    # turn ans list into dict: { "1": "reaction", ... }
+    answers = {
+        str(item["idx"]): item["word"]
+        for item in cloze_data["ans"]
+    }
 
     # read voc chosen by user
     with open('data/cloze/input.json', 'r', encoding='utf-8') as f:
@@ -216,10 +301,6 @@ def submit_cloze():
         if is_correct and correct:
             used_words.add(correct)
 
-    # re-read test.txt
-    with open('data/cloze/test.txt', 'r', encoding='utf-8') as f:
-        text = f.read()
-
     def replace_blank(match):
         idx = match.group(1)
         r = result.get(idx)
@@ -236,16 +317,11 @@ def submit_cloze():
                {readonly}
                style="width:120px; background-color:{color};">
         '''
-    locked_words = set()
-
-    for idx, r in result.items():
-        if r["is_correct"]:
-            locked_words.add(r["correct"])
-
-
+    locked_words = {
+        r["correct"] for r in result.values() if r["is_correct"]
+    }
 
     html_text = re.sub(r'___\[(\d+)\]___', replace_blank, text)
-    
 
     return render_template(
         'cloze.html',
