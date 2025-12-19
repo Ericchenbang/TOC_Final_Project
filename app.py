@@ -80,10 +80,11 @@ def news_detail(category, article_id):
 #--------------------------------------------------------------#
 @app.route('/generate_mindmap', methods=['POST'])
 def generate_mindmap_route():
+    category = session.get('current_article_category')
     article_id = session.get('current_article_id')
     article_text = session.get('current_article_text')
     if not article_id or not article_text:
-        return
+        return redirect(url_for('news_list', category = category))
     
     if session.get('mindmap_article_id') == article_id \
        and os.path.exists('data/mindMap.json'):
@@ -111,10 +112,11 @@ def mindmap():
 #--------------------------------------------------------------#
 @app.route('/generate_reading', methods=['POST'])
 def generate_reading_route():
+    category = session.get('current_article_category')
     article_id = session.get('current_article_id')
     article_text = session.get('current_article_text')
     if not article_id or not article_text:
-        return
+        return redirect(url_for('news_list', category = category))
     
     if session.get('reading_article_id') == article_id \
        and os.path.exists('data/reading.json'):
@@ -552,13 +554,14 @@ def hangman_hint():
     session["hangman_wrong"] = wrong
 
     hint_path = 'data/hangman/describe.txt'
-    with open(hint_path, 'r', encoding='utf-8') as f:
-        hint_text = f.read()
     if not os.path.exists(hint_path):
         return jsonify({
             "error": "hint_not_ready",
             "wrong": wrong
         })
+    with open(hint_path, 'r', encoding='utf-8') as f:
+        hint_text = f.read()
+    
     
     lose = wrong >= 6
 
