@@ -12,25 +12,25 @@ After studying the vocabulary, the system offers several practice modes to evalu
 The primary goal of this project is to enable users to learn English from authentic news sources. By leveraging LLMs for interactive practice and real-time feedback, we aim to transform English learning into an engaging and dynamic experience.
 
 ## Features
-1. BBC news crawler
+1. **BBC news crawler**
     
     The system scrapes the latest article titles and content from BBC based on categories (e.g., News, Business, Sport), providing real-time reading material for users.
-2. Organize words based on CEFR levels
+2. **Organize words based on CEFR levels**
 
     Analyzes selected articles using an LLM to extract key vocabularies based on a specified difficulty level (e.g., B1/B2) and quantity. Each word includes its part of speech, Chinese definition, and example sentences.
-3. Sentence correction
+3. **Sentence correction**
     
     Users practice by constructing sentences with the new vocabularies. The system utilizes an LLM to check grammar and usage, providing detailed explanations and feedback in Chinese.
-4. Cloze test practice
+4. **Cloze test practice**
 
     The LLM generates a short passage and the backend automatically hides specific vocabulary words, creating a fill-in-the-blank exercise for users to test their retention.
-5. Hangman game
+5. **Hangman game**
 
     A random word is selected from the vocabulary pool for a game of Hangman. The interface displays remaining lives and current progress. Users can sacrifice a "life" to receive an LLM-generated hint—an English description of the word rather than the answer itself.
-6. Mind mapping
+6. **Mind mapping**
 
     To enhance reading comprehension and structural analysis, the LLM generates a hierarchical mind map structure based on the article, which is then rendered visually by the frontend.
-7. Reading comprehension quizzes
+7. **Reading comprehension quizzes**
 
     To ensure a thorough understanding of the news content, the system uses an LLM to generate five comprehension questions (e.g., True/False, Single Choice, or Multiple Choice).
 ## Finite State Machine
@@ -73,7 +73,7 @@ The primary goal of this project is to enable users to learn English from authen
 ### 1. Clone this repository
 ```
 cd <your-repo-folder>
-git clone https://github.com/Ericchenbang/TOC_Final_Project.git
+git clone https://github.com/Ericchenbang/TOC-Final-Project-VocaGent.git
 ```
 
 ### 2. Setup Python environment
