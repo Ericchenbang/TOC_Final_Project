@@ -320,6 +320,7 @@ class Agent:
         prompt = (
             text_for_llm
             + f"\n\n根據這段英文文章，依據 CEFR={CEFR} 整理出 {voc_numbers} 個單字，"
+            + "要不多不少剛剛好的數量，如果不夠的話請往低一階的程度找。"
             "輸出格式為 JSON 陣列，其 JSON Schema 如下：\n"
             "```json\n"
             + schema_str

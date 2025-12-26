@@ -1,4 +1,4 @@
-import re, random
+import re
 
 class EnglishLearning:
     """
