@@ -1,13 +1,17 @@
 {
-  "question": "The ___[1]___ ___[2]___ the cold night before the concert.",
+  "question": "Tomorrow the community will discuss a new recycling ___[1]___ that aims to cut waste in the historic ___[2]___ of the town. The council will offer a ___[3]___ that the program will start on time and meet its targets. Residents are hopeful that the proposal will improve the neighbourhood and protect the environment.",
   "ans": [
     {
       "idx": 1,
-      "word": "vocalist"
+      "word": "plan"
     },
     {
       "idx": 2,
-      "word": "endured"
+      "word": "zone"
+    },
+    {
+      "idx": 3,
+      "word": "guarantee"
     }
   ]
 }

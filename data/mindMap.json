@@ -1,216 +1,149 @@
 {
   "id": "root",
-  "text": "John Robertson – Life and Career",
+  "text": "Antoine Semenyo Transfer Saga",
   "children": [
     {
       "id": "n1",
-      "text": "Early Life & Youth",
+      "text": "Transfer Situation",
       "children": [
         {
           "id": "n1-1",
-          "text": "Born 1953 in Viewpark, North Lanarkshire",
+          "text": "Release clause (£65m, expires 10 Jan)",
           "children": []
         },
         {
           "id": "n1-2",
-          "text": "Played for Drumchapel Amateurs",
+          "text": "Interested clubs (Manchester City, Manchester United, Liverpool, Tottenham, Chelsea)",
           "children": []
         },
         {
           "id": "n1-3",
-          "text": "Scotland youth international",
-          "children": []
-        },
-        {
-          "id": "n1-4",
-          "text": "Joined Nottingham Forest May 1970",
+          "text": "Current season performance (Bournemouth 15th, 7‑match winless run)",
           "children": []
         }
       ]
     },
     {
       "id": "n2",
-      "text": "Playing Career – Nottingham Forest (first spell)",
+      "text": "Player Profile & Stats",
       "children": [
         {
           "id": "n2-1",
-          "text": "Debut 1970",
+          "text": "Career path (rejected by Arsenal, Spurs, Millwall; Bristol City academy; loans; Bournemouth)",
           "children": []
         },
         {
           "id": "n2-2",
-          "text": "Key player under Brian Clough (1975‑1983)",
+          "text": "Playing style (two‑footed, vertical drive, pace, strong dribbling, hold‑up play)",
           "children": []
         },
         {
           "id": "n2-3",
-          "text": "243 consecutive games (Dec 1976‑Dec 1980)",
+          "text": "2025 stats (14 league goals, 6 assists, 20 goal involvements)",
           "children": []
         },
         {
           "id": "n2-4",
-          "text": "Major trophies",
-          "children": [
-            {
-              "id": "n2-4-1",
-              "text": "European Cup 1979, 1980 (scored 1980 final goal)",
-              "children": []
-            },
-            {
-              "id": "n2-4-2",
-              "text": "First Division titles (1977‑78, 1978‑79)",
-              "children": []
-            },
-            {
-              "id": "n2-4-3",
-              "text": "UEFA Super Cup 1979",
-              "children": []
-            },
-            {
-              "id": "n2-4-4",
-              "text": "League Cup 1978 (scored penalty winner in replay)",
-              "children": []
-            },
-            {
-              "id": "n2-4-5",
-              "text": "FA Charity Shield 1978",
-              "children": []
-            },
-            {
-              "id": "n2-4-6",
-              "text": "Anglo‑Scottish Cup 1978",
-              "children": []
-            }
-          ]
-        },
-        {
-          "id": "n2-5",
-          "text": "Brian Clough’s quote: “Picasso of our game”",
+          "text": "Comparisons (better goal/assist per game than Doku, Savinho, Foden, Marmoush)",
           "children": []
         }
       ]
     },
     {
       "id": "n3",
-      "text": "International Career – Scotland",
+      "text": "Manchester City Interest",
       "children": [
         {
           "id": "n3-1",
-          "text": "28 caps",
+          "text": "Pep Guardiola praise (quotes on energy, movement, hunger)",
           "children": []
         },
         {
           "id": "n3-2",
-          "text": "Winning goal vs England 1981",
+          "text": "Current squad needs (injuries to Doku, Oscar Bobb, Marmoush on AFCON)",
           "children": []
         },
         {
           "id": "n3-3",
-          "text": "Goal vs New Zealand at 1982 World Cup",
+          "text": "Tactical fit (transition speed, versatility, fast‑break threat)",
           "children": []
         },
         {
           "id": "n3-4",
-          "text": "Youth level representation",
+          "text": "Potential squad changes (possible sale of Savinho or Bobb to accommodate Semenyo)",
           "children": []
         }
       ]
     },
     {
       "id": "n4",
-      "text": "Transfers & Later Playing Years",
+      "text": "Bournemouth Perspective",
       "children": [
         {
           "id": "n4-1",
-          "text": "Sold to Derby County 1983 (contested fee)",
+          "text": "Andoni Iraola's stance (wants to keep Semenyo)",
           "children": []
         },
         {
           "id": "n4-2",
-          "text": "Injury at Derby hampered progress",
+          "text": "Club developments (new training facilities, planned new ground)",
           "children": []
         },
         {
           "id": "n4-3",
-          "text": "Returned to Nottingham Forest 1985 (no former form)",
+          "text": "Team performance with Semenyo (only two losses in games he scores)",
           "children": []
         },
         {
           "id": "n4-4",
-          "text": "Non‑league clubs: Corby Town, Stamford, Grantham Town",
-          "children": []
-        },
-        {
-          "id": "n4-5",
-          "text": "Impact on Brian Clough‑Peter Taylor relationship",
+          "text": "Player sentiment (Justin Kluivert, Sam Vokes praising his enjoyment and quality)",
           "children": []
         }
       ]
     },
     {
       "id": "n5",
-      "text": "Coaching & Assistant Manager Career",
+      "text": "Market & Financial Aspects",
       "children": [
         {
           "id": "n5-1",
-          "text": "Assistant to Martin O’Neill",
-          "children": [
-            {
-              "id": "n5-1-1",
-              "text": "Wycombe Wanderers – promotion from Conference and Third Division",
-              "children": []
-            },
-            {
-              "id": "n5-1-2",
-              "text": "Norwich City – coaching role",
-              "children": []
-            },
-            {
-              "id": "n5-1-3",
-              "text": "Leicester City – promotion to Premier League, League Cup win 1997",
-              "children": []
-            },
-            {
-              "id": "n5-1-4",
-              "text": "Celtic – 3 SPL titles, 3 Scottish Cups, 1 League Cup, UEFA Cup final 2003",
-              "children": []
-            },
-            {
-              "id": "n5-1-5",
-              "text": "Aston Villa – League Cup runner‑up 2010 (final season as coach)",
-              "children": []
-            }
-          ]
+          "text": "£65m fee considered cut price for a Premier League winger in his prime",
+          "children": []
+        },
+        {
+          "id": "n5-2",
+          "text": "Comparison to City’s previous January spend (injury‑crisis signings)",
+          "children": []
+        },
+        {
+          "id": "n5-3",
+          "text": "Potential impact on transfer market (multiple top clubs showing interest)",
+          "children": []
         }
       ]
     },
     {
       "id": "n6",
-      "text": "Legacy & Personal Anecdotes",
+      "text": "Potential Impact on City",
       "children": [
         {
           "id": "n6-1",
-          "text": "Brian Clough’s transformation quote in biography “Supertramp”",
+          "text": "Adds scoring threat behind Haaland",
           "children": []
         },
         {
           "id": "n6-2",
-          "text": "John McGovern’s comparison to Ryan Giggs with two good feet",
+          "text": "Provides depth on both wings (versatile winger)",
           "children": []
         },
         {
           "id": "n6-3",
-          "text": "2015 Nottingham Post poll – top favourite Forest player",
+          "text": "Could help City overtake Arsenal in title race",
           "children": []
         },
         {
           "id": "n6-4",
-          "text": "Described by Clough as ‘scruffy, unfit, uninterested waste of time’ turned elite deliverer",
-          "children": []
-        },
-        {
-          "id": "n6-5",
-          "text": "Died 2025 at age 72",
+          "text": "Allows Foden to return to his preferred number 10 role",
           "children": []
         }
       ]

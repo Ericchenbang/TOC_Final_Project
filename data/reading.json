@@ -2,68 +2,63 @@
   {
     "id": "q1",
     "type": "Multiple_Answer",
-    "question": "Which players are mentioned as being considered for a seam bowling spot in the Melbourne Test?",
+    "question": "Which companies have partnered with Baidu to trial autonomous taxis in the UK?",
     "choices": [
-      "Michael Neser",
-      "Brendon Doggett",
-      "Jhye Richardson",
-      "Todd Murphy",
-      "Usman Khawaja"
+      "Uber",
+      "Lyft",
+      "Waymo",
+      "Tesla"
     ],
     "correct_choices": [
       0,
-      1,
-      2
+      1
     ],
-    "explanation": "The article states that Michael Neser, Brendon Doggett and Jhye Richardson are vying for two places in the final XI, while Todd Murphy is an off‑spinner and Usman Khawaja is a batsman."
+    "explanation": "The article states that both Uber and Lyft announced partnerships with Baidu to trial driverless taxis in London."
   },
   {
     "id": "q2",
     "type": "True_Or_False",
-    "question": "Australia have already secured the Ashes series lead at 3-0 before the Melbourne Test.",
-    "answer": true,
-    "explanation": "The article notes that Australia have already won the Ashes after moving 3-0 up in the first three Tests."
+    "question": "Baidu's Apollo Go service already operates in dozens of cities worldwide, including many outside China.",
+    "answer": false,
+    "explanation": "Apollo Go currently operates in dozens of cities, but the article notes these are mostly in China, not worldwide."
   },
   {
     "id": "q3",
     "type": "Multiple_Answer",
-    "question": "Which of the following statements about the Melbourne pitch conditions were made by Steve Smith?",
+    "question": "According to the article, what are some concerns the public has about driverless taxis?",
     "choices": [
-      "The pitch has 10mm of grass.",
-      "The surface is described as \"quite furry, quite green\".",
-      "The pitch will favor spin bowling.",
-      "The conditions are cold and overcast."
+      "Safety",
+      "Privacy",
+      "Cost",
+      "Lack of trust"
     ],
     "correct_choices": [
       0,
-      1,
       3
     ],
-    "explanation": "Smith said there is 10mm of grass on the surface, called it \"quite furry, quite green\", and described the weather as cold and overcast. He did not say the pitch would favor spin."
+    "explanation": "The article highlights public unease about safety and a lack of trust in the technology, with poll figures showing many would prefer a human driver."
   },
   {
     "id": "q4",
     "type": "True_Or_False",
-    "question": "Jofra Archer was ruled out of the series due to a side strain.",
-    "answer": true,
-    "explanation": "The article mentions that pace bowler Jofra Archer has been ruled out of the series with a side strain."
+    "question": "The UK transport secretary said the pilot scheme for self‑driving cars would start in spring 2026.",
+    "answer": false,
+    "explanation": "She said the scheme would start \"from spring,\" but did not specify the year 2026; the article links 2026 to the regulatory framework, not the spring launch."
   },
   {
     "id": "q5",
     "type": "Multiple_Answer",
-    "question": "Which Australian players were absent from the series due to injuries or other reasons?",
+    "question": "What reasons did Professor Jack Stilgoe give for cautioning against rapid scaling of driverless taxis?",
     "choices": [
-      "Pat Cummins",
-      "Josh Hazlewood",
-      "Nathan Lyon",
-      "Todd Murphy",
-      "Steve Smith"
+      "Need for standards for the technology",
+      "Risk of adding to congestion",
+      "They can be scaled like other digital technologies",
+      "They will reduce single‑occupancy cars"
     ],
     "correct_choices": [
       0,
-      1,
-      2
+      1
     ],
-    "explanation": "Pat Cummins missed the Melbourne Test because of a back problem, Josh Hazlewood missed the entire series, and Nathan Lyon suffered a hamstring injury that ended his series. Todd Murphy was in the squad, and Steve Smith played as stand‑in captain."
+    "explanation": "Stilgoe emphasized the need for standards and warned that driverless cars could increase congestion if not managed properly."
   }
 ]

@@ -1,86 +1,176 @@
 [
   {
-    "word": "food",
+    "word": "assessment",
     "part_of_speech": "noun",
-    "zh-Hant_definition": "供給身體能量與營養的物質",
-    "example_sentence": "We enjoy a lot of food at the Christmas dinner."
+    "zh-Hant_definition": "評估、判斷",
+    "example_sentence": "Zelensky gave a positive assessment of his conversation with the US envoys."
   },
   {
-    "word": "brain",
+    "word": "conversation",
     "part_of_speech": "noun",
-    "zh-Hant_definition": "控制思考、感覺和行動的器官",
-    "example_sentence": "The brain receives signals from the gut after a meal."
+    "zh-Hant_definition": "對話、交談",
+    "example_sentence": "The conversation lasted nearly an hour and produced new ideas."
   },
   {
-    "word": "sleep",
+    "word": "yielded",
     "part_of_speech": "verb",
-    "zh-Hant_definition": "閉上眼睛休息，使身體和大腦恢復活力",
-    "example_sentence": "Many people feel sleepy and want to sleep after a big lunch."
+    "zh-Hant_definition": "產生、帶來",
+    "example_sentence": "The talks yielded \"new ideas in terms of formats, meetings, and timing.\""
   },
   {
-    "word": "meal",
+    "word": "format",
     "part_of_speech": "noun",
-    "zh-Hant_definition": "一天中吃的一頓食物",
-    "example_sentence": "A festive meal can contain turkey, potatoes and dessert."
+    "zh-Hant_definition": "形式、格式",
+    "example_sentence": "They discussed different formats for future peace negotiations."
   },
   {
-    "word": "hunger",
+    "word": "meeting",
     "part_of_speech": "noun",
-    "zh-Hant_definition": "想吃東西的感覺",
-    "example_sentence": "Hunger makes us look for food quickly."
+    "zh-Hant_definition": "會議、會面",
+    "example_sentence": "A follow‑up meeting is planned with the American team."
   },
   {
-    "word": "energy",
+    "word": "timing",
     "part_of_speech": "noun",
-    "zh-Hant_definition": "身體活動所需要的力量或活力",
-    "example_sentence": "Carbohydrates give us quick energy after we eat."
+    "zh-Hant_definition": "時間安排、時機",
+    "example_sentence": "Timing on how to bring a real peace closer was a key topic."
   },
   {
-    "word": "body",
+    "word": "peace",
     "part_of_speech": "noun",
-    "zh-Hant_definition": "包括所有器官和組織的整體",
-    "example_sentence": "The body works hard to keep blood sugar stable."
+    "zh-Hant_definition": "和平、和解",
+    "example_sentence": "Both sides are looking for a lasting peace in the region."
   },
   {
-    "word": "study",
+    "word": "plan",
     "part_of_speech": "noun",
-    "zh-Hant_definition": "對某個主題進行的系統性調查",
-    "example_sentence": "A new study looked at how overeating affects metabolism."
+    "zh-Hant_definition": "計畫、方案",
+    "example_sentence": "Zelensky described an updated 20‑point peace plan."
   },
   {
-    "word": "blood",
+    "word": "envoy",
     "part_of_speech": "noun",
-    "zh-Hant_definition": "在身體裡流動的液體，運送氧氣和營養",
-    "example_sentence": "After the pizza, their blood sugar did not rise much."
+    "zh-Hant_definition": "特使、外交使節",
+    "example_sentence": "US envoy Steve Witkoff took part in the discussions."
   },
   {
-    "word": "sugar",
+    "word": "diplomacy",
     "part_of_speech": "noun",
-    "zh-Hant_definition": "甜味的碳水化合物，提供快速能量",
-    "example_sentence": "Too much sugar can raise blood glucose levels."
+    "zh-Hant_definition": "外交",
+    "example_sentence": "It was an active day for Ukraine’s diplomacy."
   },
   {
-    "word": "fat",
-    "part_of_speech": "noun",
-    "zh-Hant_definition": "提供能量且儲存在身體的營養素",
-    "example_sentence": "High‑fat foods are often part of holiday feasts."
-  },
-  {
-    "word": "feel",
-    "part_of_speech": "verb",
-    "zh-Hant_definition": "經歷某種感覺或情緒",
-    "example_sentence": "I feel sleepy after eating a large dinner."
-  },
-  {
-    "word": "healthy",
+    "word": "sensitive",
     "part_of_speech": "adjective",
-    "zh-Hant_definition": "對身體有益的、沒有疾病的",
-    "example_sentence": "A balanced diet helps keep you healthy."
+    "zh-Hant_definition": "敏感的、微妙的",
+    "example_sentence": "There is still work to be done on sensitive issues."
   },
   {
-    "word": "mood",
+    "word": "security",
     "part_of_speech": "noun",
-    "zh-Hant_definition": "一段時間內的情緒或心情",
-    "example_sentence": "Hunger can change your mood and make you irritable."
+    "zh-Hant_definition": "安全、保障",
+    "example_sentence": "The plan includes security guarantees from the US and NATO."
+  },
+  {
+    "word": "guarantee",
+    "part_of_speech": "noun",
+    "zh-Hant_definition": "保證、擔保",
+    "example_sentence": "Ukraine seeks iron‑clad security guarantees in any settlement."
+  },
+  {
+    "word": "zone",
+    "part_of_speech": "noun",
+    "zh-Hant_definition": "區域、地帶",
+    "example_sentence": "A demilitarised zone could be created in the east."
+  },
+  {
+    "word": "industrial",
+    "part_of_speech": "adjective",
+    "zh-Hant_definition": "工業的、產業的",
+    "example_sentence": "The Donetsk region is an industrial area of Ukraine."
+  },
+  {
+    "word": "region",
+    "part_of_speech": "noun",
+    "zh-Hant_definition": "地區、區域",
+    "example_sentence": "Moscow controls about 75% of the Donetsk region."
+  },
+  {
+    "word": "potential",
+    "part_of_speech": "adjective",
+    "zh-Hant_definition": "潛在的、可能的",
+    "example_sentence": "A free economic zone is a potential option for the east."
+  },
+  {
+    "word": "withdrawal",
+    "part_of_speech": "noun",
+    "zh-Hant_definition": "撤退、撤回",
+    "example_sentence": "The plan offers the potential withdrawal of Ukrainian troops."
+  },
+  {
+    "word": "control",
+    "part_of_speech": "verb",
+    "zh-Hant_definition": "控制、掌握",
+    "example_sentence": "Russia currently controls most of Donbas."
+  },
+  {
+    "word": "pressure",
+    "part_of_speech": "noun",
+    "zh-Hant_definition": "壓力、迫使",
+    "example_sentence": "Zelensky is under pressure from Trump to cede territory."
+  },
+  {
+    "word": "reject",
+    "part_of_speech": "verb",
+    "zh-Hant_definition": "拒絕、駁回",
+    "example_sentence": "Ukraine has rejected any territorial concessions so far."
+  },
+  {
+    "word": "demand",
+    "part_of_speech": "verb",
+    "zh-Hant_definition": "要求、需求",
+    "example_sentence": "Kyiv demands iron‑clad security guarantees."
+  },
+  {
+    "word": "warning",
+    "part_of_speech": "noun",
+    "zh-Hant_definition": "警告、提醒",
+    "example_sentence": "Putin warned that Ukrainian troops must leave Donbas."
+  },
+  {
+    "word": "continue",
+    "part_of_speech": "verb",
+    "zh-Hant_definition": "持續、繼續",
+    "example_sentence": "Umerov will continue discussions with the American team."
+  },
+  {
+    "word": "strike",
+    "part_of_speech": "verb",
+    "zh-Hant_definition": "襲擊、打擊",
+    "example_sentence": "Ukrainian forces struck a key oil refinery in Rostov."
+  },
+  {
+    "word": "refinery",
+    "part_of_speech": "noun",
+    "zh-Hant_definition": "煉油廠、精煉廠",
+    "example_sentence": "The Novoshakhtinsk refinery supplies fuel for Russian operations."
+  },
+  {
+    "word": "critical",
+    "part_of_speech": "adjective",
+    "zh-Hant_definition": "關鍵的、重要的",
+    "example_sentence": "The refinery is critical for Russian military logistics."
+  },
+  {
+    "word": "supply",
+    "part_of_speech": "verb",
+    "zh-Hant_definition": "供應、提供",
+    "example_sentence": "The plant supplies fuel to troops stationed in occupied territories."
+  },
+  {
+    "word": "force",
+    "part_of_speech": "noun",
+    "zh-Hant_definition": "軍隊、武裝力量",
+    "example_sentence": "Russian forces took control of the settlement of Sviato‑Pokrovske."
   }
 ]

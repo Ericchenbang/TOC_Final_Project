@@ -75,7 +75,7 @@ def news_detail(category, article_id):
 
     session['current_article_category'] = category
     session['current_article_id'] = article_id
-    session['current_article_text'] = article['content']
+    #session['current_article_text'] = article['content']
     session['current_article_title'] = article.get('title')
 
     return render_template(
@@ -90,12 +90,27 @@ def news_detail(category, article_id):
 def generate_mindmap_route():
     category = session.get('current_article_category')
     article_id = session.get('current_article_id')
-    article_text = session.get('current_article_text')
-
+    #article_text = session.get('current_article_text')
+    
     if not category:
         flash('Invalid state of article, please re-choose category of news :<', 'warning')
         return redirect(url_for('index'))
 
+    news_path = f"data/news/{category}.json"
+
+    with open(news_path, 'r', encoding='utf-8') as f:
+        news_data = json.load(f)
+
+    # find coresponding id article
+    article = next(
+        (a for a in news_data["articles"] if a["id"] == article_id),
+        None
+    )
+
+    if article is None:
+        return "Article not found", 404
+
+    article_text = article['content']
     
     if not article_id or not article_text:
         flash('Please goto news again to generate mindmap~', 'warning')
@@ -137,12 +152,32 @@ def mindmap():
 def generate_reading_route():
     category = session.get('current_article_category')
     article_id = session.get('current_article_id')
-    article_text = session.get('current_article_text')
+    #article_text = session.get('current_article_text')
     
     if not category:
         flash('Invalid state of article, please re-choose category of news', 'warning')
         return redirect(url_for('index'))
 
+    
+    if not category:
+        flash('Invalid state of article, please re-choose category of news :<', 'warning')
+        return redirect(url_for('index'))
+
+    news_path = f"data/news/{category}.json"
+
+    with open(news_path, 'r', encoding='utf-8') as f:
+        news_data = json.load(f)
+
+    # find coresponding id article
+    article = next(
+        (a for a in news_data["articles"] if a["id"] == article_id),
+        None
+    )
+
+    if article is None:
+        return "Article not found", 404
+
+    article_text = article['content']
     
     if not article_id or not article_text:
         flash('Please goto news again to generate reading test ~', 'warning')

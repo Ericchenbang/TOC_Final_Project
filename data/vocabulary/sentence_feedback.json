@@ -1,7 +1,7 @@
 [
   {
-    "word": "hunger",
-    "is_correct": false,
-    "explanation": "在句子 \"I am freaking hunger.\" 中，hunger 是名詞，不能直接放在 be 動詞後作表語。正確的用法應該是形容詞 hungry，例如 \"I am freaking hungry.\"，或使用名詞結構 \"I have a freaking hunger.\""
+    "word": "timing",
+    "is_correct": true,
+    "explanation": "在此句中 \"timing\" 用來表示判斷或執行動作的適當時機，與慣用語 \"good timing\" 相符，語意正確。"
   }
 ]
